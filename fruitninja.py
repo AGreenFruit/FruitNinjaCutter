@@ -7,8 +7,8 @@ import pyautogui
 
 def process_img(original_image):
 	processed_img = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
-	#processed_img = cv2.GaussianBlur(processed_img, (5,5), 0)
-	#processed_img = cv2.Canny(processed_img, threshold1=160, threshold2=200)
+	processed_img = cv2.GaussianBlur(processed_img, (5,5), 0)
+	processed_img = cv2.Canny(processed_img, threshold1=160, threshold2=200)
 
 
 	circles = cv2.HoughCircles(processed_img, 
@@ -19,10 +19,9 @@ def process_img(original_image):
 		circles = np.uint16(np.around(circles))
 		for pt in circles[0, :]:
 			a, b, r = pt[0], pt[1], pt[2]
-			pyautogui.click(a, b)
-			#cv2.circle(processed_img, (a, b), r, (0, 255, 0), 2)
-			#pyautogui.moveTo(a, b)
-			#pyautogui.dragRel(30, 0, duration = .15)
+			cv2.circle(processed_img, (a, b), r, (0, 255, 0), 2)
+			pyautogui.moveTo(a, b)
+			pyautogui.dragRel(30, 0, duration = .15)
 
 	#vertices = np.array([[10,500], [10,300], [300,200], [500,200], [800, 300], [800,500]], np.int32)
 	return processed_img
