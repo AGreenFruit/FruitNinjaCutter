@@ -4,7 +4,7 @@ I used BlueStacks (https://www.bluestacks.com/) to emulate Fruit Ninja.
   
 To run this program, launch Fruit Ninja through Blue Stacks and put the window in the upper left corner of the screen. Then run fruitninja.py.  
   
-Libraries needed:
+Libraries needed:  
 numpy  
 cv2  
 mss  
